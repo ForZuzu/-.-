@@ -1,0 +1,766 @@
+//Импорт стилей
+@import "null.scss";
+@import "fonts.scss";
+//Переменные цветов
+$C_gray:#737373;
+$C_black:#252B42;
+$C_deep-green:#0D5C63;
+$C_orange: #FF7B47;
+$C_deep-blue: #17213C;
+
+body{
+      font-family: Montserrat;
+      font-size: 14px;
+      font-weight: 500;
+      color: $C_black;
+      line-height: 1;
+      background: #FAFAFA;
+      .wrapper {
+            min-height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+      }
+}
+//<-------------------------------------ШАПКА-НАЧАЛО----------------------------------------->
+.header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 50;
+      width: 100%;
+      min-height: 104px;
+      @media(max-width:450px) {
+            background: #fff;
+      }
+      &__container {
+            min-height: 104px;
+            @media(max-width:479px) {
+                  min-height: 70px;
+            }
+            display: flex;
+            align-items: center;
+            //Создание отступа безопасности<
+            box-sizing: content-box;
+            padding: 15px;
+            //Создание отступа безопасности>
+      }
+
+      &__logo {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 32px;
+            letter-spacing: 0.1px;
+            color: inherit;
+      }
+
+      &__menu {
+            margin: 0 0 0 132px;
+      }
+      //Адаптивная верстака для планшетов
+      @media(max-width:992px) {
+            &__menu{
+                  margin: 0 0 0 70px;
+            }
+      }
+      //Адаптивная верстака для ???
+      @media(max-width:767px) {
+            &__menu{
+                  margin: 0 0 0 40px;
+            }
+      }
+      //Адаптивная верстака для мобилок
+      @media(max-width:479px) {
+            &__menu{
+                  margin: 0 0 0 20px;
+            }
+            .menu__link{
+                  font-size: 18px;
+            }
+      }
+      .menu {
+            //Создание отступа безопасности<
+            padding: 5px 0;
+            //Создание отступа безопасности>
+            &__list {
+                  display: flex;
+                  flex-wrap: wrap;
+            }
+      
+            &__item {
+                  margin: 0 21px 0 0;
+            }
+            &__item:last-child{
+                  margin: 0;
+            }
+            //Допускается альтернативный вариант записи
+            //&__item:not(:last-child){
+            //    margin: 0 21px 0 0;
+            // При такой записи отступ будет у всех элементов, кроме last-child
+      
+            &__link {
+                  color: $C_gray;
+                  font-weight: 500;
+                  letter-spacing: 0.2px;
+                  text-align: center;
+                  line-height: calc(24/14 *100%);//Для чего эта формула?
+                  //Если в будет меняться размер экрана, то следует изменять и высоту строки, т.е. line-hight
+                  //И для того, чтобы строки не слипались при сжатии экрана
+                  //где 24 - высота строки по макету
+                  //14 - размер шрифта по макету
+            }
+      }
+}
+//<-------------------------------------УНИКУМЫ--------------------------------------------->
+.container {
+      max-width: 1076px;
+      margin: 0 auto;
+      padding: 0 15px;
+}
+.ibg{
+      position: relative;
+      img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+      }
+}
+
+.header-block {
+      padding-top: 80px;
+      h2 {
+            font-size: 40px;
+            line-height: calc(57/40*100%);
+            letter-spacing: 0.2px;
+            font-weight: 700;
+            text-align: center;
+      }
+
+      p{
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            text-align: center;
+            color: $C_gray;
+            line-height: calc(20/14*100%);
+      }
+}
+
+.header-block {
+      @media(max-width:360px) {
+            h2 {
+                  font-size: 32px;
+            }
+      }
+}
+
+//<-------------------------------------ШАПКА-КОНЕЦ----------------------------------------->
+//<-------------------------------------МЕЙН_БЛОК-НАЧАЛО----------------------------------------->
+.page {
+      flex: 1 1 auto;
+      flex-direction: column;
+      &__main-block {
+            position: relative;
+      }
+      background: #EDEDED;
+}
+.main-block {
+      &__body {
+            position: relative;
+            z-index: 2;
+            padding: 184px 15px 191px 15px;
+      }
+      &__body > *:not(:last-child){
+            margin: 0 0 35px 0;
+      }
+      &__title {
+            font-size: 58px;
+            font-weight: 800;
+            line-height: calc(80/58*100%);
+            letter-spacing: 0.2px;
+            max-width: 509px;
+            @media(max-width:500px) {
+                  font-size: 48px;
+            }
+            @media(max-width:400px) {
+                  font-size: 39px;
+            }
+      }
+      &__text {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: calc(30/20*100%);
+            letter-spacing: 0.2px;
+            color: $C_gray;
+            max-width: 400px;
+
+      }
+
+      &__buttons {
+            display: flex;
+            flex-wrap: wrap;
+            a:not(:last-child){
+                  margin-right: 10px;
+            }
+      }
+
+      &__button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            text-align: center;
+            line-height: calc(28/14*100%);
+            border-radius: 37px;
+            padding: 10px 36px;
+            &_orange {
+                  color: #FFF;
+                  background: $C_orange;
+            }
+
+            &_border {
+                  color: $C_deep-green;
+                  border: 1px solid $C_deep-green;
+            }
+            @media(max-width: 482px) {
+                  flex: 1 1 100%;
+                  margin-right: 10px;
+                  margin-bottom: 15px;
+            }
+      }
+      &__img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+      }
+      &__img img{
+            object-fit: cover;
+            object-position: right;
+            @media(max-width:750px) {
+                  opacity: 0.5;
+            }
+      }
+}
+
+//<-------------------------------------МЕЙН_БЛОК-КОНЕЦ----------------------------------------->
+//<-------------------------------------SERVICES-BLOCK-НАЧАЛО----------------------------------------->
+.services {
+      margin-top: -111px;
+      &__body {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+            margin-right: -15px;
+            margin-left: -15px;
+      }
+
+      &__column {
+            flex: 1 1 33.3%;
+            padding: 0 15px;
+      }
+      @media (max-width: 880px) {
+            &__column:not(:last-child){
+                  margin-bottom: 30px;
+                  text-align: center;
+            }
+      }
+      @media(max-width: 555px) and (min-width: 509px) {
+            &__column:not(:first-child){
+                  height: 100%;
+            }
+      }
+      &__item {
+            height: 100%;
+            box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.2);
+            background: #fff;
+            padding: 35px 40px;
+            @media(max-width:400px) {
+                  padding: 25px 30px;
+            }
+      }
+      &__item > *:not(:last-child){
+            margin-bottom: 10px;
+      }
+}
+
+.item-service {
+      height: 100%;
+      &__title {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: calc(32/24*100%);
+            letter-spacing: 0.1px;
+      }
+
+      &__text {
+            line-height: calc(20/14*100%);
+            color: $C_gray;
+            letter-spacing: 0.2px;
+      }
+}
+.item-service_green{
+      background: $C_deep-green;
+      color: #FFF;
+      :last-child{
+            color: inherit;
+      }
+      @media(max-width:855px) {
+            text-align: center;
+      }
+}
+
+//<-------------------------------------SERVICES-BLOCK-КОНЕЦ----------------------------------------->
+//<-------------------------------------ACHIEVENMENTS-НАЧАЛО----------------------------------------->
+.achievements {
+      &__header {
+            @media (max-width: 600px) {
+                  margin-top: 40px;
+            }
+            @media(max-width:450px) {
+                  .header-block__title{
+                        font-size: 32px;
+                  }
+                  margin-top: 40px;
+            }
+      }
+
+      &__statistics {
+            display: flex;
+            flex-wrap: wrap;
+      }
+}
+
+.statistics {
+      margin: 50px -20.5px 0 -20.5px;
+      &__culumn{
+            flex: 0 1 25%;
+            padding: 0 20.5px;
+            box-sizing:border-box;
+      }
+
+      &__item {
+            height: 100%;
+            padding: 30px 30px;
+            background: #fff;
+            text-align: center;
+            box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.15);
+      }
+      &__item > *:not(:last-child){
+            margin-bottom: 10px;
+      }
+
+      &__img{
+            display: flexbox;
+            align-items: flex-end;
+            justify-content: center;
+            height: 48px;
+      }
+
+      &__value {
+            font-weight: 700;
+            font-size: 40px;
+            line-height: calc(57/40*100%);
+            letter-spacing: 0.2px;
+      }
+
+      &__text {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: calc(24/16*100%);
+            letter-spacing: 0.1px;
+      }
+      @media(max-width:890px) {
+            &__culumn{
+                  flex: 1 1 50%;
+                  padding: 0 10px;
+            }
+            margin: 50px -10px 80px -10px;
+            &__culumn:first-child{
+                  margin-bottom: 20px;
+            }
+            &__culumn:nth-child(2){
+                  margin-bottom: 20px;
+            }
+      }
+      @media (max-width: 600px) {
+            margin: 30px -10px 80px -10px;
+      }
+      @media (max-width:500px) {
+            &__text{
+                  font-size: 12px;
+            }
+            &__value{
+                  font-size: 30px;
+            }
+      }
+      @media(max-width:360px) {
+            &__culumn{
+                  flex: 1 1 100%;
+                  padding: 0 10px;
+            }
+            &__text{
+                  font-size: 16px;
+            }
+            &__value{
+                  font-size: 35px;
+            }
+            &__culumn:not(:last-child){
+                  margin-bottom: 20px;
+            }
+      }
+}
+
+//<-------------------------------------ACHIEVENMENTS-КОНЕЦ----------------------------------------->
+//<-------------------------------------PRACTICE-НАЧАЛО----------------------------------------->
+.page__practice{
+      background: #EDEDED;
+}
+
+.practice__header {
+      padding: 45px 93px 45px 93px;
+      @media(max-width:845px) {
+            margin-top: 20px;
+      }
+      @media(max-width:550px) {
+            padding: 15px 20px;
+      }  
+      @media(max-width:450px) {
+            .practice-block__title{
+                  font-size: 30px;
+            }
+            margin-top: 0px;
+      }
+}
+.practice {
+
+      &__body {
+            display: flex;
+            flex-wrap: wrap;
+            margin:  0 -20px;
+            padding-bottom: 80px;
+      }
+
+      &__column {
+            flex: 1 1 25%;
+            padding: 0 20px;
+            @media(max-width: 1040px) {
+                  flex: 1 1 50%;
+                  padding: 20px 20px;
+            }
+            @media(max-width: 630px) {
+                  flex: 1 1 100%;
+                  padding: 10px 20px 10px 20px;
+            }
+      }
+      
+}
+.item-practice {
+      background: #FFF;
+      box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      &__text {
+            flex: 1 1 100%;
+            padding: 30px;
+            :not(:last-child){
+                  padding-bottom: 15px;
+            }  
+      }
+      &__link{
+            display: inline-block;
+      }
+      &__title {
+            color: $C_black;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: calc(24/16*100%);
+            letter-spacing: 0.1px;
+      }
+      &__sub-title{
+            color: $C_gray;
+            font-size: 14px;
+            line-height: calc(20/14*100%);
+            font-weight: 500;
+            letter-spacing: 0.2px;
+      }
+      &__img{
+            display: block;
+            padding: 0 0 60% 0;
+      }
+}
+
+//<-------------------------------------PRACTICE-КОНЕЦ----------------------------------------->
+//<-------------------------------------WHOWEARE-НАЧАЛО----------------------------------------->
+.page {
+      &__whoweare {
+            padding-bottom: 136px;
+            @media(max-width:600px) {
+                  padding-bottom: 80px;
+            }
+            .whoweare__header{
+                  padding-top: 180px;
+            }
+            @media(max-width: 960px) {
+                  .whoweare__header{
+                        padding-top: 80px;
+                  }
+            }
+      }
+      
+}
+.whoweare {
+      background: #FFF;
+      &__body{
+            display: flex;
+            margin-top: 100px;
+      }
+      &__video{
+            position: relative;
+            flex: 0 0 57%;
+            padding-bottom: 42.25%;
+      }
+      &__video iframe{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+      }
+
+      &__content {
+            flex: 1 1 auto;
+            padding-left: 120px;
+      }
+      @media(max-width: 1090px) {
+            &__content {
+                  flex: 1 1 auto;
+                  padding-left: 50px;
+            }
+      }
+      @media(max-width: 960px) {
+            &__body{
+                  flex-direction: column-reverse;
+                  margin-top: 50px;
+            }
+            &__content {
+                  flex: 1 1 auto;
+                  padding-left: 0px;
+            }
+            &__video{
+                  position: relative;
+                  flex: 0 0 57%;
+                  padding-bottom: 56.25%;
+            }
+            &__body > *:not(:first-child){
+                  margin-bottom: 40px;
+            }
+      }
+}
+
+.item-whoweare {
+      &__text{
+            padding: 20px 0;
+      }
+      &__text > *:not(:last-child){
+            margin-bottom: 10px;
+      }
+      &__title {
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            line-height: calc(57/40*100%);
+      }
+      &__title{
+            text-align: center;
+            font-size: 30px;
+      }
+      &__sub-title {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            line-height: calc(20/14*100%);
+            color: $C_gray;
+      }
+
+      &__cards {
+            display: flex;
+            flex-direction: column;
+      }
+      &__card{
+            margin-top: 30px;
+      }
+}
+
+.card-item {
+      display: flex;
+      &__icon {
+            margin-right: 20px;
+            flex:0 0 32px;
+      }
+
+      &__text > * :not(:last-child) {
+            margin-bottom: 5px;
+            flex: 1 1 auto;
+      }
+
+      &__title {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.1px;
+            line-height: (24/16*100%);
+      }
+
+      &__sub-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: $C_gray;
+            line-height: calc(24/14*100%);
+      }
+      @media(max-width: 960px) {
+            margin-right: auto;
+            margin-left: auto;
+      }
+}
+
+//<-------------------------------------WHOWEARE-КОНЕЦ----------------------------------------->
+//<-------------------------------------CLIENTS-НАЧАЛО----------------------------------------->
+
+.clients {
+
+      &__body {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 50px 25px;
+            padding-bottom: 70px;
+            @media(max-width:600px) {
+                  padding: 30px 0px;
+                  padding-bottom: 50px;
+            }
+      }
+
+      &__item {
+            text-align: center;
+            flex: 0 1 16.667%;
+            padding: 8px;
+            min-width: 140px;
+      }
+      &__item img{
+            max-width: 100%;
+      }
+}
+
+//<-------------------------------------CLIENTS-КОНЕЦ----------------------------------------->
+//<-------------------------------------SUBSCRIBE-НАЧАЛО----------------------------------------->
+.subscribe::before{
+      position: absolute;
+      z-index: 1;
+      content: " ";
+      height: 77px;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background: #252B42;
+      
+}
+
+.subscribe {
+      padding-bottom: 20px;
+      position: relative;
+      &__body {
+            position: relative;
+            z-index: 3;
+            margin: 14px 0 0 0;
+            padding: 30px 50px;
+            background: $C_deep-blue;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 124px;
+      }
+      &__title {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: calc(32/24*100%);
+            letter-spacing: 0.1px;
+            color: #FFF;
+      }
+
+      &__form {
+            flex: 0 1 50%;
+            display: flex;
+            align-items: center;
+      }
+
+      &__input {
+            flex: 1 1 auto;
+            width: 100%;
+            min-height: 58px;
+            padding: 0 20px;
+            background: #F9F9F9;
+            border: 1px solid #E6E6E6;
+            border-right: 0;
+            border-radius: 5px 0 0 5px;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: calc(28/14*100%);
+            letter-spacing: 0.2px;
+      }
+
+      &__button {
+            display: flex;
+            padding: 15px 22.5px;
+            min-height: 58px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+            line-height: calc(28/14*100%);
+            color: #FFF;
+            background: $C_orange;
+            border: 1px solid #E6E6E6;
+            border-radius: 0px 5px 5px 0px;
+      }
+      @media(min-width: 1070px) {
+            &__body{
+                  margin: 14px 32px 0 32px;
+            }
+      }
+      @media(min-width: 810px){
+            &__title{
+                  max-width: 266px;
+            }
+      }
+      @media(max-width: 810px) {
+            &__body{
+                  margin: 14px -15px 0 -15px;
+                  padding: 20px 15px;
+                  flex-wrap: wrap;
+                  justify-content: space-between;
+            }
+            &__title{
+                  margin-bottom: 20px;
+            }
+            &__form{
+                  flex: 1 1 auto;
+            }
+      }
+}
+//<-------------------------------------SUBSCRIBE-КОНЕЦ----------------------------------------->
+//<-------------------------------------ФУТЕР-НАЧАЛО----------------------------------------->
+
+//<-------------------------------------ФУТЕР-КОНЕЦ----------------------------------------->
